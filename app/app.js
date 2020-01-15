@@ -49,10 +49,10 @@ $form.addEventListener('submit', (evt) => {
       createPostItem(post, idx)).join('')
     
     $main.innerHTML = `
-      <header>
-        <h1>Posts List</h1>
-      </header>
-      <ul>${postsElement}</ul>
+      <div class="posts-list">
+        <h2 class="page-title">Posts List</h2>
+        <ul>${postsElement}</ul>
+      </div>
     `
   };
 
@@ -66,21 +66,54 @@ $form.addEventListener('submit', (evt) => {
 
 });
 
-const displayPostDetail = (post) => {
-    $main.innerHTML = `
-      <header>
-        <h1>Post Detail</h1>
-      </header>
-      <h1>${post.title}</h1>
-      <p>${post.body}</p>
-    `
-  }
-  
 // Event binding to open posts in list
-document.addEventListener('click', (ev) => {
-  const $target = ev.target;
+document.addEventListener('click', (event) => {
+  const $target = event.target;
   if($target.classList.contains('btn-open')){
     const postId = Number($target.getAttribute('data-post-id'));
-    displayPostDetail(postsDataArray[postId])
+    displayPostDetail(postId)
   }
 })
+
+const displayPostDetail = (postId) => {
+  const post = postsDataArray[postId];
+  //classList.remove('hidden')
+  document.querySelector('.posts-list').classList.add('hidden')
+  $main.innerHTML +=
+  `
+  <div class="post-detail">
+    <h2 class="page-title">Post Detail</h2>
+    <h3 data-post-id="${postId}">${post.title}</h3>
+    <p class="post-body">${post.body}</p>
+    <button class="btn btn-submit btn-back">Back to Posts List Page</button>
+  </div>
+  `
+}
+
+document.addEventListener('click', (event) => {
+  const $target = event.target;
+  if($target.classList.contains('btn-back')){
+    const $postDetailToRemove = document.querySelector('.post-detail');
+    $postDetailToRemove.parentElement.removeChild($postDetailToRemove);
+    document.querySelector('.posts-list').classList.remove('hidden')
+  }
+})
+
+// const displayPostDetail = (post) => {
+//     $main.innerHTML = `
+//       <div class="post-detail">
+//         <h2 class="page-title">Post Detail</h2>
+//         <h3>${post.title}</h3>
+//         <p>${post.body}</p>
+//       </div>
+//     `
+//   }
+  
+// // Event binding to open posts in list
+// document.addEventListener('click', (event) => {
+//   const $target = event.target;
+//   if($target.classList.contains('btn-open')){
+//     const postId = Number($target.getAttribute('data-post-id'));
+//     displayPostDetail(postsDataArray[postId])
+//   }
+// })

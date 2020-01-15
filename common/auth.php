@@ -1,10 +1,12 @@
 <?php
 function do_login(string $username, string $password): bool {
   $allowedUsername = "root";
-  $allowedPassword = "0000";
+  // $allowedPassword = "password";
+  $hashedAllowedPassword = "5f4dcc3b5aa765d61d8327deb882cf99";
+  $hashedUserPassword = md5($password);
 
   if($username === $allowedUsername && 
-     $password === $allowedPassword){
+     $hashedUserPassword === $hashedAllowedPassword){
     return true;
   }
 

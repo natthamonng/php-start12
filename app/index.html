@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,16 +8,21 @@
     <title>App | Web 2.0</title>
 </head>
 <body>
+    <header>
+        <h1>Personal Blog 2.0</h1> 
+    </header>
+
     <main>
         <form>
-            <label>Username</label>
-            <input type="text" name="username"/>
-            <label>Password</label>
-            <input type="password" name="password"/>
-            <button type="submit">Login</button>
+            <label for="username">UserName</label>
+            <input type="text" class="form-control" id="username" name="username" placeholder="username" value="root" />
+
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Password" value="0000"/>
+          
+            <button type="submit" class="btn btn-submit">Sign in</button>
         </form>
     </main>
-    
 
     <script src="app.js"></script>
 </body>

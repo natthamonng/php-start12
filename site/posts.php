@@ -1,15 +1,18 @@
+<?php 
+    session_start();
+?>
+
 <?php include './layouts/head.php' ?>
 <body>
 
     <?php
     require_once '../common/post.php';
     ?>
+    <?php include './layouts/header.php' ?>
+    <?php include './layouts/user-status.php' ?>
 
     <main>
-        <header>
-            <h1>Posts List</h1>
-        </header>
-        
+        <h2 class="page-title">Posts List</h2>
         <ul>
 
             <?php
