@@ -1,7 +1,8 @@
 <?php 
     session_start();
 ?>
-
+<!DOCTYPE html>
+<html lang="en">
 <?php include './layouts/head.php' ?>
 <body>
 
@@ -19,5 +20,8 @@
             <p class="post-body"><?= $post['body']; ?> </p>
             <a href="http://localhost/php-start12/site/posts.php">Back to Posts List page</a>
         </main>
+        
+    <?php include './layouts/footer.php' ?>
 </body>
-<?php include './layouts/footer.php' ?>
+
+</html>

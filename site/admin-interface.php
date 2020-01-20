@@ -13,7 +13,7 @@
     <?php include './layouts/user-status.php' ?>
 
     <main>
-        <h2 class="page-title">Posts List</h2>
+        <h2 class="page-title">Admin Interface</h2>
         
         <?php 
             if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['post-title']) && isset($_POST['post-body'])) {
@@ -25,27 +25,6 @@
             <input class="post-body" type="text" placeholder="body ..." name="post-body"/>
             <button class="btn btn-submit" type="submit"><i class="fas fa-plus-circle"></i> Add New Post</button>
         </form>
-
-        <ul>
-
-            <?php
-            $postsData = get_posts();
-            $counter = 0;
-            foreach($postsData as $post) {
-            ?>
-
-                <li>
-                    <h3><a href="http://localhost/php-start12/site/post.php?id=<?= $counter ?>"><?= $post['title']; ?></a></h3>
-                </li>
-
-            <?php
-            $counter++;
-            }
-            ?>
-
-        </ul>
-
-
     </main>
 
     <?php include './layouts/footer.php' ?>

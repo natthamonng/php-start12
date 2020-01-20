@@ -12,6 +12,10 @@ body {
     background-color: #dadada;
 }
 
+/* .wrapper {
+    padding: 0 1rem;
+} */
+
 header {
     background-color: #333;
     color: #fff;
@@ -36,7 +40,10 @@ div.user-status a {
 main {
     margin: auto;
     padding: 1rem;
-    
+}
+
+.page-title {
+    margin: 1rem 0;
 }
 
 div.posts-list {
@@ -51,13 +58,10 @@ div.post-detail {
     display: none;
 }
 
-.page-title {
-    margin: 1rem 0;
-}
-
 .post-body {
     margin-bottom: 1rem;
 }
+
 ul {
     list-style-type:none;
 }
@@ -88,5 +92,13 @@ input {
 
 .btn-submit {
     background-color: #0275d8;
+}
+
+button.btn-edit {
+    float: right;
+    cursor: pointer;
+    border: none;
+    padding: 5px 10px;
+    background-color: #f4f4f4;
 }
 
